@@ -135,6 +135,18 @@ void myReshape(int w,int h)
 	glutPostRedisplay();
 }
 
+// Key Controls
+void keys(unsigned char key,int x, int y)
+{
+	if(key=='a')
+		if(rSpinnerSpeed<=0.1f)
+			rSpinnerSpeed = 0.0f;
+		rSpinnerSpeed-=0.01f;
+		if(key=='d') rSpinnerSpeed+=0.1f;
+		if(key=='s') rSpinnerSpeed=0.0f;
+		display();
+}
+
 int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
@@ -142,9 +154,10 @@ int main(int argc, char **argv)
 	glutInitWindowSize(600,600);
 	glutCreateWindow("Wind Spinner");
 	glutDisplayFunc(display);
-	glutReshapeFunc(myReshape);
 	glEnable(GL_DEPTH_TEST);
+	glutReshapeFunc(myReshape);
 	glClearColor(crgb(237),crgb(237),crgb(237),1.0);
+	glutKeyboardFunc(keys);
 	glutIdleFunc(spincube);
 	glutMainLoop();
 }
