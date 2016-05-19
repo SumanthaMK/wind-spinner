@@ -149,6 +149,7 @@ void keys(unsigned char key,int x, int y)
 
 int main(int argc, char **argv)
 {
+	printf("Keyboard Controls: \n a : Slows down spinning \n s : Stops spinning \n d : Speeds up spinning \n");
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB|GLUT_DEPTH);
 	glutInitWindowSize(600,600);
