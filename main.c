@@ -1,26 +1,20 @@
 //#include<windows.h>
 #include<stdio.h>
 #include<GL/glut.h>
-
+#include<math.h>
 // Rotation angle and speed variables
 GLfloat rSpinner;
 GLfloat rSpinnerSpeed = 0.1f;
 
 // Spinner leafs coordinates
 GLfloat sp_c[][3] = {
-	{0.0,0.0,0.0},
-	{-0.5,0.0,0.0},
-	{-1.0,0.0,0.0},
-	{-0.5,0.5,0.0},
-	{0.0,0.5,0.0},
-	{0.0,1.0,0.0},
-	{0.5,0.5,0.0},
-	{0.5,0.0,0.0},
-	{1.0,0.0,0.0},
-	{0.5,-0.5,0.0},
-	{0.0,-0.5,0.0},
-	{0.0,-1.0,0.0},
-	{-0.5,-0.5,0.0}
+	{0.0,0.0,0.0},{-0.5,0.0,0.0},{-1.0,0.0,0.0},{-0.5,0.5,0.0},
+	{0.0,0.5,0.0},{0.0,1.0,0.0},{0.5,0.5,0.0},{0.5,0.0,0.0},
+	{1.0,0.0,0.0},{0.5,-0.5,0.0},{0.0,-0.5,0.0},{0.0,-1.0,0.0},
+	{-0.5,-0.5,0.0},
+	{0.0,0.03,0},{0.02,0.02,0},{0.03,0.0,0.0},{0.02,-0.02,0.0},
+	{0.0,-0.03,0.0},{-0.02,-0.02,0},{-0.03,0.0,0.0},{-0.02,-0.02,0.0}
+
 };
 
 // Spinner Stick coordinates
@@ -61,9 +55,40 @@ void draw_triangle(int a, int b, int c)
 	glEnd();
 }
 
+// Draws hole
+void draw_hole()
+{
+	glColor3f(1.0,1.0,1.0);
+	glBegin(GL_POLYGON);
+	glVertex3fv(sp_c[13]);
+	glVertex3fv(sp_c[14]);
+	glVertex3fv(sp_c[15]);
+	glVertex3fv(sp_c[16]);
+	glVertex3fv(sp_c[17]);
+	glVertex3fv(sp_c[18]);
+	glVertex3fv(sp_c[19]);
+	glVertex3fv(sp_c[20]);
+	glEnd();
+}
+
+// Draws spinner stick
+void draw_stick()
+{
+	glColor3f(crgb(196),crgb(167),crgb(141));
+	glBegin(GL_POLYGON);
+	glVertex3fv(st_c[0]);
+	glVertex3fv(st_c[1]);
+	glVertex3fv(st_c[2]);
+	glVertex3fv(st_c[3]);
+	glEnd();
+}
+
 // Draws 4 leafs 
 void draw_spinner()
 {
+	// Draws hole
+	draw_hole();
+
 	// Leaf 1 - Top-Left
 	glColor3f(crgb(255),crgb(152),crgb(0));
 	draw_triangle(0,3,4);
@@ -87,18 +112,6 @@ void draw_spinner()
 	draw_triangle(0,12,1);
 	glColor3f(crgb(139.0),crgb(195.0),crgb(74.0));
 	draw_leaf(0,10,11,12,1);
-}
-
-// Draws spinner stick
-void draw_stick()
-{
-	glColor3f(crgb(196),crgb(167),crgb(141));
-	glBegin(GL_POLYGON);
-	glVertex3fv(st_c[0]);
-	glVertex3fv(st_c[1]);
-	glVertex3fv(st_c[2]);
-	glVertex3fv(st_c[3]);
-	glEnd();
 }
 
 // Axis control variables
