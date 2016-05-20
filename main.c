@@ -1,6 +1,7 @@
 #include<GL/glut.h>
 #include<stdio.h>
 #include<math.h>
+
 // Rotation angle and speed variables
 GLfloat rSpinner;
 GLfloat spinnerSpeed = 0.1f;
@@ -153,7 +154,6 @@ void keys(unsigned char key,int x, int y)
 		spinnerSpeed-=0.01f;
 	}
 	else{
-
 	}
 	if(key=='d') spinnerSpeed+=0.01f;
 	if(key=='s') spinnerSpeed=0.0f;
