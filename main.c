@@ -4,7 +4,7 @@
 
 // Rotation angle and speed variables
 GLfloat rSpinner;
-GLfloat rSpinnerSpeed = 0.2f;
+GLfloat rSpinnerSpeed = 0.1f;
 
 // Spinner leafs coordinates
 GLfloat sp_c[][3] = {
@@ -25,10 +25,10 @@ GLfloat sp_c[][3] = {
 
 // Spinner Stick coordinates
 GLfloat st_c[][3] = {
-	{0.03,0.0,0.0},
-	{-0.03,0.0,0.0},
-	{-0.03,-2.0,0.0},
-	{0.03,-2.0,0.0}
+	{-0.03,0.03,0.0},
+	{0.03,0.03,0.0},
+	{0.03,-2.0,0.0},
+	{-0.03,-2.0,0.0}
 };
 
 // Converts Decimal to RGB
@@ -40,7 +40,7 @@ float crgb(float rgbcolor)
 }
 
 // Draws Single Leaf
-float draw_leaf(int a, int b, int c, int d, int e)
+void draw_leaf(int a, int b, int c, int d, int e)
 {
 	glBegin(GL_POLYGON);
 	glVertex3fv(sp_c[a]);
@@ -87,7 +87,6 @@ void draw_spinner()
 	draw_triangle(0,12,1);
 	glColor3f(crgb(139.0),crgb(195.0),crgb(74.0));
 	draw_leaf(0,10,11,12,1);
-
 }
 
 // Draws spinner stick
@@ -112,7 +111,7 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	glTranslatef(0.0f,0.0f,0.0f); 
-	glRotatef(rSpinner,0.0f,0.0f,1.0f);     
+	glRotatef(rSpinner,0.0f,0.0f,1.0f);
 	draw_spinner();
 	glLoadIdentity();                   
 	draw_stick();
@@ -145,9 +144,9 @@ void keys(unsigned char key,int x, int y)
 	else{
 
 	}
-		if(key=='d') rSpinnerSpeed+=0.1f;
-		if(key=='s') rSpinnerSpeed=0.0f;
-		display();
+	if(key=='d') rSpinnerSpeed+=0.01f;
+	if(key=='s') rSpinnerSpeed=0.0f;
+	display();
 }
 
 // Main function
