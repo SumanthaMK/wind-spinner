@@ -102,9 +102,11 @@ void draw_stick()
 	glEnd();
 }
 
+// Axis control variables
 static GLfloat theta[]={0,0,0};
 static GLint axis=2;
 
+// Display function
 void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -118,6 +120,7 @@ void display(void)
 	glutPostRedisplay();
 }
 
+// Reshape function
 void myReshape(int w,int h)
 {
 	glViewport(0,0,w,h);
