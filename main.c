@@ -1,7 +1,6 @@
 //#include<windows.h>
 #include<stdio.h>
 #include<GL/glut.h>
-typedef float point[3];
 
 // Rotation angle and speed variables
 GLfloat rSpinner;
@@ -33,7 +32,8 @@ GLfloat st_c[][3] = {
 };
 
 // Converts Decimal to RGB
-float crgb(float rgbcolor){
+float crgb(float rgbcolor)
+{
 	float clr;
 	clr = rgbcolor*(1.0/255.0);
 	return clr;
@@ -115,10 +115,6 @@ void display(void)
 	glLoadIdentity();                   
 	draw_stick();
 	rSpinner-=rSpinnerSpeed;
-}
-
-void spincube()
-{
 	glutPostRedisplay();
 }
 
@@ -138,15 +134,20 @@ void myReshape(int w,int h)
 // Key Controls
 void keys(unsigned char key,int x, int y)
 {
-	if(key=='a')
+	if(key=='a'){
 		if(rSpinnerSpeed<=0.1f)
 			rSpinnerSpeed = 0.0f;
 		rSpinnerSpeed-=0.01f;
+	}
+	else{
+
+	}
 		if(key=='d') rSpinnerSpeed+=0.1f;
 		if(key=='s') rSpinnerSpeed=0.0f;
 		display();
 }
 
+// Main function
 int main(int argc, char **argv)
 {
 	printf("Keyboard Controls: \n a : Slows down spinning \n s : Stops spinning \n d : Speeds up spinning \n");
@@ -159,6 +160,5 @@ int main(int argc, char **argv)
 	glutReshapeFunc(myReshape);
 	glClearColor(crgb(237),crgb(237),crgb(237),1.0);
 	glutKeyboardFunc(keys);
-	glutIdleFunc(spincube);
 	glutMainLoop();
 }
