@@ -1,4 +1,3 @@
-//#include<windows.h>
 #include<stdio.h>
 #include<GL/glut.h>
 #include<math.h>
@@ -14,7 +13,6 @@ GLfloat sp_c[][3] = {
 	{-0.5,-0.5,0.0},
 	{0.0,0.03,0},{0.02,0.02,0},{0.03,0.0,0.0},{0.02,-0.02,0.0},
 	{0.0,-0.03,0.0},{-0.02,-0.02,0},{-0.03,0.0,0.0},{-0.02,-0.02,0.0}
-
 };
 
 // Spinner Stick coordinates
