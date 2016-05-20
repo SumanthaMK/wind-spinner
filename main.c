@@ -1,9 +1,9 @@
-#include<stdio.h>
 #include<GL/glut.h>
+#include<stdio.h>
 #include<math.h>
 // Rotation angle and speed variables
 GLfloat rSpinner;
-GLfloat rSpinnerSpeed = 0.1f;
+GLfloat spinnerSpeed = 0.1f;
 
 // Spinner leafs coordinates
 GLfloat sp_c[][3] = {
@@ -126,7 +126,7 @@ void display(void)
 	draw_spinner();
 	glLoadIdentity();                   
 	draw_stick();
-	rSpinner-=rSpinnerSpeed;
+	rSpinner-=spinnerSpeed;
 	glutPostRedisplay();
 }
 
@@ -148,15 +148,15 @@ void myReshape(int w,int h)
 void keys(unsigned char key,int x, int y)
 {
 	if(key=='a'){
-		if(rSpinnerSpeed<=0.1f)
-			rSpinnerSpeed = 0.0f;
-		rSpinnerSpeed-=0.01f;
+		if(spinnerSpeed<=0.1f)
+			spinnerSpeed = 0.0f;
+		spinnerSpeed-=0.01f;
 	}
 	else{
 
 	}
-	if(key=='d') rSpinnerSpeed+=0.01f;
-	if(key=='s') rSpinnerSpeed=0.0f;
+	if(key=='d') spinnerSpeed+=0.01f;
+	if(key=='s') spinnerSpeed=0.0f;
 	display();
 }
 
