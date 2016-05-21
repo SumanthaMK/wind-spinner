@@ -1,6 +1,5 @@
 #include<GL/glut.h>
 #include<stdio.h>
-#include<math.h>
 
 // Rotation angle and speed variables
 GLfloat rSpinner;
