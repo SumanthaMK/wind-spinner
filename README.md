@@ -9,7 +9,7 @@ cc main.c -lglut -lGLU -lGL
 ```
 
 ## Screenshot
-![Wind Spinner Screenshot](https://github.com/shajanjp/wind-spinner/raw/master/Screenshot.png "Wind Spinner")
+![Wind Spinner Screenshot](https://raw.githubusercontent.com/shajanjp/wind-spinner/089a537cb5eb521fab62f1903cad0013c7e682fa/Screenshot.png "Wind Spinner")
 
 ## Authors
 - Shajan Jacob 
