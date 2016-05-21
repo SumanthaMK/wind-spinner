@@ -7,11 +7,14 @@ VTU BE CSE 6th Sem OpenGL mini project - Wind Spinner.
 ![Wind Spinner Screenshot](https://github.com/shajanjp/wind-spinner/raw/master/Screenshot.png "Wind Spinner")
 
 ## Authors
-	Shajan Jacob 
-	Muzammil AM.
+- Shajan Jacob 
+- Muzammil AM.
 
 ## References
 Spinner Design and Colors inspired from Google Photos logo.
 
 ## Thanks
-Vishal, Akash, Joel and Nowfal
+- Vishal Shaji Philip
+- Akash Manoj
+- Joel George
+- Nowfal Nasir
