@@ -26,9 +26,7 @@ GLfloat stick[][3] = {
 // Converts decimal to RGB
 float d2rgb(float rgbcolor)
 {
-	float clr;
-	clr = rgbcolor*(1.0/255.0);
-	return clr;
+	return rgbcolor*(1.0/255.0);
 }
 
 // Draws a leaf
