@@ -129,6 +129,8 @@ void display(void)
 	draw_stick();
 	rSpinner-=spinnerSpeed;
 	glutPostRedisplay();
+	glFlush();
+	glutSwapBuffers();
 }
 
 // Reshape function
