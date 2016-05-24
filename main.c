@@ -4,6 +4,7 @@
 // Rotation angle and speed variables
 GLfloat spinnerAngle;
 GLfloat spinnerSpeed = 0.1f;
+GLfloat scale = 0.5;
 
 // Spinner coordinates
 GLfloat spinner[][3] = {
@@ -115,17 +116,22 @@ void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
+	glPushMatrix();
+	glScalef(scale, scale, scale);
+
 	glTranslatef(0.0f,0.0f,0.0f); 
 	glRotatef(spinnerAngle,0.0f,0.0f,1.0f);
 	draw_spinner();
-	glLoadIdentity();                   
+	glLoadIdentity();  
+	glScalef(scale, scale, scale);
+
 	draw_stick();
 	spinnerAngle-=spinnerSpeed;
+	glPopMatrix();
 	glutPostRedisplay();
 	glFlush();
 	glutSwapBuffers();
 }
-
 // Reshape function
 void myReshape(int w,int h)
 {
@@ -152,6 +158,9 @@ void keyboard(unsigned char key,int x, int y)
 	}
 	if(key=='d') spinnerSpeed+=0.01f;
 	if(key=='s') spinnerSpeed=0.0f;
+	if(key=='x') scale+=0.01f;
+	if(key=='z') scale-=0.01f;
+
 	display();
 }
 
