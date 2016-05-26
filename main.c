@@ -4,7 +4,7 @@
 // Rotation angle and speed variables
 GLfloat spinnerAngle;
 GLfloat spinnerSpeed = 0.1f;
-GLfloat scale = 0.5;
+GLfloat scale = 1.0;
 
 // Spinner coordinates
 GLfloat spinner[][3] = {
@@ -160,7 +160,6 @@ void keyboard(unsigned char key,int x, int y)
 	if(key=='s') spinnerSpeed=0.0f;
 	if(key=='x') scale+=0.01f;
 	if(key=='z') scale-=0.01f;
-
 	display();
 }
 
